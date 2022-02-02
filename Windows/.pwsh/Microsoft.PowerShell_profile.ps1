@@ -1,6 +1,3 @@
-New-Alias k kubectl
-Remove-Alias h
-New-Alias h helm
 New-Alias g goto
 
 function goto {
@@ -9,14 +6,17 @@ function goto {
     )
 
     Switch ($location) {
-        "pr" {
-            Set-Location -Path "$HOME/projects"
+        "dev" {
+            Set-Location -Path "e:/development"
         }
-        "bp" {
-            Set-Location -Path "$HOME/projects/boilerplates"
+        "tfm" {
+            Set-Location -Path "e:/development/truckersfm"
         }
-        "cs" {
-            Set-Location -Path "$HOME/projects/cheat-sheets"
+        "nl" {
+            Set-Location -Path "'e:/ninjalabs development/'"
+        }
+        "sypo" {
+            Set-Location -Path "e:/development/SYPO"
         }
         default {
             echo "Invalid location"
@@ -25,5 +25,6 @@ function goto {
 }
 
 $ENV:STARSHIP_CONFIG = "$HOME\.starship\starship.toml"
-$ENV:STARSHIP_DISTRO = "者  xcad"
+$ENV:STARSHIP_DISTRO = "者  $ENV:UserName"
 Invoke-Expression (&starship init powershell)
+Import-Module -Name Terminal-Icons
