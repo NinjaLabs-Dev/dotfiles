@@ -66,9 +66,6 @@ format = "via [ vagrant $version]($style) "
 [docker_context]
 format = "via [ $context](bold blue) "
 
-[helm]
-format = "via [ $version](bold purple) "
-
 [python]
 symbol = " "
 python_binary = "python3"
@@ -79,10 +76,3 @@ disabled = true
 
 [ruby]
 format = "via [ $version]($style) "
-
-[kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
-disabled = false
-[kubernetes.context_aliases]
-"clcreative-k8s-staging" = "cl-k8s-staging"
-"clcreative-k8s-production" = "cl-k8s-prod"
