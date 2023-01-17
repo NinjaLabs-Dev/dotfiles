@@ -3,14 +3,11 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Change command timeout from 500 to 1000 ms
-command_timeout = 1000
-
 # Change the default prompt format
 format = """\
 [╭╴](238)$env_var\
 $all[╰─](238)$character"""
-# 
+
 # Change the default prompt characters
 [character]
 success_symbol = "[](238)"
@@ -18,7 +15,7 @@ error_symbol = "[](238)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold white) '
+format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
 variable = "STARSHIP_DISTRO"
 disabled = false
 
@@ -27,8 +24,8 @@ disabled = false
 style_user = "white bold"
 style_root = "black bold"
 format = "[$user]($style) "
-disabled = false
-show_always = true
+disabled = true  # disable in powershell
+show_always = false
 
 [directory]
 truncation_length = 3
@@ -69,9 +66,6 @@ format = "via [ vagrant $version]($style) "
 [docker_context]
 format = "via [ $context](bold blue) "
 
-[helm]
-format = "via [ $version](bold purple) "
-
 [python]
 symbol = " "
 python_binary = "python3"
@@ -83,9 +77,8 @@ disabled = true
 [ruby]
 format = "via [ $version]($style) "
 
-[kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
-disabled = false
-[kubernetes.context_aliases]
-"clcreative-k8s-staging" = "cl-k8s-staging"
-"clcreative-k8s-production" = "cl-k8s-prod"
+[php]
+format = "via [ $version](bold purple) "
+
+[aws]
+disabled = true
